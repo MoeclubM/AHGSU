@@ -28,9 +28,27 @@
             flex: 1 1 calc(33.333% - 20px);
             margin: 10px;
         }
+
+        /* Fullscreen loading image */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.xn--8mrq2kk1b027c.com/img/genshin%20start.webp');
+            background-size: cover;
+            background-position: center;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen"></div>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -62,7 +80,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">我的其他站点</h5>
-                    <p class="card-text">114514</p>
+                    <p class="card-text">下北泽池沼网站</p>
                     <a href="//1loli.link/" class="btn btn-primary">跳转按钮</a>
                 </div>
             </div>
@@ -106,5 +124,18 @@
 
     <!-- Bootstrap JS bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/mhDoLbDldZc3qpsJHpLogda//BVZbgYuw6kof4u2FrCedxOtgRZDTHgHUhOCVim" crossorigin="anonymous"></script>
+
+    <!-- Script to fade out and remove loading screen -->
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                var loadingScreen = document.getElementById('loadingScreen');
+                loadingScreen.style.opacity = 0;
+                setTimeout(function() {
+                    loadingScreen.remove();
+                }, 1000); // Wait for the fade-out transition to complete before removing
+            }, 2000); // Wait for 2 seconds before starting the fade-out
+        };
+    </script>
 </body>
 </html>
